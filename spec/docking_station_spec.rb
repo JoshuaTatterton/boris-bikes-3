@@ -3,6 +3,9 @@ require './lib/docking_station.rb'
 describe DockingStation do
   it {is_expected.to respond_to :release_bike}
 
+  it 'has a default capacity' do
+    expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
 
   it 'releases working bikes' do
     subject.dock Bike.new
