@@ -9,7 +9,10 @@ attr_reader :capacity
   def initialize(capacity: DEFAULT_CAPACITY)
     @bikes = []
     @capacity = capacity
+  end
 
+  def capacity=(value = DEFAULT_CAPACITY)
+    @capacity = value
   end
 
   def release_bike
@@ -31,5 +34,4 @@ attr_reader :capacity
   def empty?
     @bikes.empty?
   end
-
 end
