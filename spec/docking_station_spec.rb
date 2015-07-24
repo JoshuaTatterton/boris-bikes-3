@@ -8,9 +8,9 @@ describe DockingStation do
   end
 
   it 'releases working bikes' do
-    subject.dock Bike.new
+    subject.dock(double :bike, broken?: false)
     bike = subject.release_bike
-    expect(bike).to be_working
+    expect(bike).not_to be_broken
 end
 
   it { is_expected.to respond_to(:dock).with(1).argument }
@@ -29,8 +29,8 @@ end
 
   describe '#dock' do
    it 'raises an error when full' do
-     20.times { subject.dock Bike.new }
-     expect { subject.dock Bike.new }.to raise_error 'Docking station full'
+     subject.capacity.times { subject.dock (double :bike) }
+     expect { subject.dock (double :bike) }.to raise_error 'Docking station full'
    end
 
 end
