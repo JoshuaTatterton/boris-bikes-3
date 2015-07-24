@@ -24,7 +24,7 @@ shared_examples_for BikeContainer do
     end
   end
 
-  describe 'remove_bike' do
+  describe '#remove_bike' do
     let(:bike) { Bike.new }
     before(:each) { subject.add_bike bike }
 

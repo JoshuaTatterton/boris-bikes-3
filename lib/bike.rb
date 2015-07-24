@@ -9,6 +9,10 @@ class Bike
 	    not @broken
 	  end
 
+	  def fix
+	  	@broken = false
+	  end
+
 	  def report_broken
 	  	@broken = true
 	  end
