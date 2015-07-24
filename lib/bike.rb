@@ -6,7 +6,7 @@ class Bike
 	end
 
 	  def working?
-	    true
+	    not @broken
 	  end
 
 	  def report_broken

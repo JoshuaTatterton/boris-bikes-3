@@ -17,7 +17,8 @@ attr_reader :capacity
 
   def release_bike
     fail 'No bikes available' if empty?
-    @bikes.pop
+    @bikes.each {|x| !x.broken? ? (return @bikes.delete(x)) : false}
+    fail 'Can not release broken bike'
   end
 
   def dock bike
@@ -28,7 +29,7 @@ attr_reader :capacity
   private
 
   def full?
-        @bikes.count >= @capacity
+    @bikes.count >= @capacity
   end
 
   def empty?
